@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!-- 字符集：utf-8 -->
+        <meta charset="utf-8">
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, please refer to the docs:
+            https://cordova.apache.org/docs/en/latest/
+        Some notes:
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        
+        <!-- 內容安全策略：Content-Security-Policy ：如果你想要引入其他樣式（bootstrap）就需要改動 style-src 的屬性-->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <!-- 格式檢測：format-detection ：telephone=no 禁止把數字轉化為撥號鏈接 -->
+        <meta name="format-detection" content="telephone=no">
+        <!-- windows 上的觸碰高亮：msapplication-tap-highlight ：no 關閉狀態-->
+        <meta name="msapplication-tap-highlight" content="no">
+        <!-- 視口：viewport ：用戶網頁的可視區域 ，viewport-fit=cover 解決 iphone tabbar 底部遮蓋問題-->
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <!-- 多種主題模式：高亮｜暗黑  - color-scheme ： 當前用戶的系統主題更改後，網站樣式隨之更改【css 中 prefers-color-scheme: dark】-->
+        <meta name="color-scheme" content="light dark">
+        <link rel="stylesheet" href="css/index.css">
+        <title>Hello World</title>
+    </head>
+    <body>
+        <div class="app">
+            <h1>Apache Cordova</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+            <!-- 添加新的 plugin：cordova plugin add cordova-plugin-geolocation -->
+            <button id="getPosition">獲取位置</button>
+            <!-- 添加新的 plugin：cordova plugin add cordova-plugin-camera -->
+            <button id="takePic">拍照</button>
+            <img src="img/logo.png" alt="" id="myImage" style="width: 200px;">
+            <!-- 添加新的 plugin：cordova plugin add cordova-plugin-device -->
+            <button id="deviceInfo">獲取設備信息</button>
+            <!-- 自定義新的插件：npm i -g plugman -->
+            <!-- 創建插件：plugman create --name MyToast --plugin_id me.tutu.mytoast --plug
+in_version 1.0.0 -->
+            <!-- cd MyToast -->
+            <!-- plugman platform add --platform_name android -->
+            <!-- plugman createpackagejson ./ -->
+            <!-- cd ../ -->
+            <!-- cordova plugin add ./MyToast/ -->
+            <button id="myToast">自定義的插件 MyToast</button>
+        </div>
+        <!-- 引入 cordova.js 不是當前目錄下的，而是構建之後目錄下的，舉例 platform/browser/www 下的 cordova.js，而 cordova.js 的根源是 platform/browser/platform_www/cordova.js -->
+        <script src="cordova.js"></script>
+        <script src="js/index.js"></script>
+    </body>
+</html>

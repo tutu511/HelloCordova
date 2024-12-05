@@ -1,0 +1,19 @@
+<!-- cordova 項目的主配置文件：在不同平台下運行，會將此文件複製到對應平台下的 config【platforms/android/app/src/main/res/xml/config.xml】 -->
+<?xml version='1.0' encoding='utf-8'?>
+<!-- cordova create [目錄名稱] [id] [應用名稱] : cordova create HelloCordova me.tutu.helloCordova CordovaApp-->
+<widget id="me.tutu.helloCordova" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>CordovaApp</name>
+    <!-- 應用描述 -->
+    <description>Sample Apache Cordova App</description>
+    <!-- 應用作者 -->
+    <author email="dev@cordova.apache.org" href="https://cordova.apache.org">
+        Apache Cordova Team
+    </author>
+    <access origin="*" />
+    <allow-navigation href="file://*/*" />
+    <!-- 指定 cordova 的起始頁面 ：www/index.html-->
+    <content src="index.html" />
+    <!-- 請求系統打開的 url -->
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+</widget>
